@@ -1,3 +1,4 @@
+import 'package:business_consultancy/stand_mark_home_page.dart';
 import 'package:business_consultancy/stand_mark_login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,10 @@ class StandMarkApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       title: 'StandMark Pvt. Ltd.',
-      home: StandMarkLoginPage(),
+      // home: StandMarkLoginPage(),
+      home: StandMarkHomePage(
+        title: 'Home',
+      ),
     );
   }
 }
