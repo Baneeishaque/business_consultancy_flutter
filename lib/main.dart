@@ -20,6 +20,7 @@ class StandMarkApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      title: 'StandMark Pvt. Ltd.',
       home: StandMarkLoginPage(),
     );
   }

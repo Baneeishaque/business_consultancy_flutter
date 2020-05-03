@@ -3,8 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class StandMarkLoginPage extends StatefulWidget {
-  static String tag = 'login-page';
-
   @override
   _StandMarkLoginPageState createState() => new _StandMarkLoginPageState();
 }
@@ -108,16 +106,16 @@ class _StandMarkLoginPageState extends State<StandMarkLoginPage> {
       // ),
 
       // shape: CircleBorder(),
-      padding: EdgeInsets.all(12),
+      // padding: EdgeInsets.all(12),
       color: Colors.blueAccent,
       clipBehavior: Clip.antiAlias,
-      disabledColor: Colors.amber,
-      disabledTextColor: Colors.black,
-      focusColor: Colors.yellow,
-      highlightColor: Colors.lime,
-      hoverColor: Colors.lightGreen,
+      // disabledColor: Colors.amber,
+      // disabledTextColor: Colors.black,
+      // focusColor: Colors.yellow,
+      // highlightColor: Colors.lime,
+      hoverColor: Colors.greenAccent,
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      splashColor: Colors.cyan,
+      splashColor: Colors.green,
       // textColor: Colors.black,
       // textTheme: ButtonTextTheme.primary,
 
@@ -127,30 +125,30 @@ class _StandMarkLoginPageState extends State<StandMarkLoginPage> {
         maxLines: 1,
         semanticsLabel: 'Continue Button',
         softWrap: false,
-        textAlign: TextAlign.end,
-        textDirection: TextDirection.rtl,
-        textScaleFactor: 2.0,
+        textAlign: TextAlign.center,
+        textDirection: TextDirection.ltr,
+        textScaleFactor: 1.5,
         textWidthBasis: TextWidthBasis.parent,
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          shadows: [
-            Shadow(blurRadius: 0.25, color: Colors.red),
-            Shadow(blurRadius: 0.25, color: Colors.green),
-            Shadow(blurRadius: 0.25, color: Colors.pink),
-            Shadow(blurRadius: 0.25, color: Colors.amber),
-          ],
-          letterSpacing: 1.5,
-          fontStyle: FontStyle.italic,
-          fontFeatures: [FontFeature.enable('smcp')],
-          fontFamily: 'Kumar One Outline',
-          decoration: TextDecoration.combine(
-              [TextDecoration.overline, TextDecoration.underline]),
-          decorationStyle: TextDecorationStyle.double,
-          decorationThickness: 2.0,
-          decorationColor: Colors.orange,
+          // shadows: [
+          //   Shadow(blurRadius: 0.25, color: Colors.red),
+          //   Shadow(blurRadius: 0.25, color: Colors.green),
+          //   Shadow(blurRadius: 0.25, color: Colors.pink),
+          //   Shadow(blurRadius: 0.25, color: Colors.amber),
+          // ],
+          // letterSpacing: 1.5,
+          // fontStyle: FontStyle.italic,
+          // fontFeatures: [FontFeature.enable('smcp')],
+          // fontFamily: 'Kumar One Outline',
+          // decoration: TextDecoration.combine(
+          //     [TextDecoration.overline, TextDecoration.underline]),
+          // decorationStyle: TextDecorationStyle.double,
+          // decorationThickness: 2.0,
+          // decorationColor: Colors.orange,
           debugLabel: 'Submit Button',
           color: Colors.white,
-          backgroundColor: Colors.red,
+          // backgroundColor: Colors.red,
           // background: paintButtonText,
         ),
       ),
@@ -164,7 +162,7 @@ class _StandMarkLoginPageState extends State<StandMarkLoginPage> {
       },
     );
 
-    final paddedLoginButton = Padding(
+    final paddedContinueButton = Padding(
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: continueButton,
     );
@@ -176,26 +174,32 @@ class _StandMarkLoginPageState extends State<StandMarkLoginPage> {
         semanticChildCount: 2,
         children: <Widget>[
           mobileNumber,
-          paddedLoginButton,
+          paddedContinueButton,
         ],
       ),
     );
 
+    final viewList = ListView(
+      shrinkWrap: true,
+      padding: EdgeInsets.only(left: 24.0, right: 24.0),
+      children: <Widget>[
+        logo,
+        SizedBox(height: 16.0),
+        inputForm,
+      ],
+    );
+
+    final centeredViewList = Center(
+      child: viewList,
+    );
+
+    final safeAreaCenteredViewList = SafeArea(
+      child: centeredViewList,
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Center(
-          child: ListView(
-            shrinkWrap: true,
-            padding: EdgeInsets.only(left: 24.0, right: 24.0),
-            children: <Widget>[
-              logo,
-              SizedBox(height: 16.0),
-              inputForm,
-            ],
-          ),
-        ),
-      ),
+      body: safeAreaCenteredViewList,
     );
   }
 }
