@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:business_consultancy/stand_mark_logo.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +21,18 @@ class _StandMarkLauncherScreenState extends State<StandMarkLauncherScreen> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, The Flutter framework has been optimized to make rerunning build methods fast, so that you can just rebuild anything that needs updating rather than having to individually change instances of widgets.
+
+    Timer timer;
+
+    void handleTimerCompletion() {
+      print('Timer Completed 5s');
+      // if (timer.isActive) {
+      //   print('Timer is Active');
+      //   timer.cancel();
+      // }
+    }
+
+    timer = new Timer(new Duration(seconds: 5), handleTimerCompletion);
 
     return Scaffold(
       body: SafeArea(
