@@ -1,5 +1,6 @@
-import 'package:business_consultancy/stand_mark_home_page.dart';
-import 'package:business_consultancy/stand_mark_login_page.dart';
+import 'package:business_consultancy/stand_mark_home_screen.dart';
+import 'package:business_consultancy/stand_mark_launcher_screen.dart';
+import 'package:business_consultancy/stand_mark_login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,16 +17,16 @@ class StandMarkApp extends StatelessWidget {
         // This is the theme of your application.
         primarySwatch: Colors.blue,
         fontFamily: 'Nunito',
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
+        // This makes the visual density adapt to the platform that you run the app on. For desktop platforms, the controls will be smaller and closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       title: 'StandMark Pvt. Ltd.',
-      // home: StandMarkLoginPage(),
-      home: StandMarkHomePage(
-        title: 'Home',
-      ),
+      home: StandMarkLauncherScreen(),
+      routes: {
+        // 'launcher': (context) => StandMarkLauncherScreen(),
+        'login': (context) => StandMarkLoginScreen(),
+        'home': (context) => StandMarkHomeScreen(),
+      },
     );
   }
 }

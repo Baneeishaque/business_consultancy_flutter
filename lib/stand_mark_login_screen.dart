@@ -1,26 +1,18 @@
 import 'dart:ui';
 
+import 'package:business_consultancy/stand_mark_logo.dart';
 import 'package:flutter/material.dart';
 
-class StandMarkLoginPage extends StatefulWidget {
+class StandMarkLoginScreen extends StatefulWidget {
   @override
-  _StandMarkLoginPageState createState() => new _StandMarkLoginPageState();
+  _StandMarkLoginScreenState createState() => new _StandMarkLoginScreenState();
 }
 
-class _StandMarkLoginPageState extends State<StandMarkLoginPage> {
+class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    final logo = Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 48.0,
-        child: Image.asset('assets/logo.png'),
-      ),
-    );
-
     final mobileNumber = TextFormField(
       decoration: InputDecoration(
         // counterText: '10',
@@ -183,7 +175,7 @@ class _StandMarkLoginPageState extends State<StandMarkLoginPage> {
       shrinkWrap: true,
       padding: EdgeInsets.only(left: 24.0, right: 24.0),
       children: <Widget>[
-        logo,
+        StandMarkLogo.logo,
         SizedBox(height: 16.0),
         inputForm,
       ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StandMarkHomePage extends StatefulWidget {
-  StandMarkHomePage({Key key, this.title}) : super(key: key);
+class StandMarkHomeScreen extends StatefulWidget {
+  StandMarkHomeScreen({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning that it has a State object (defined below) that contains fields that affect how it looks.
 
@@ -10,10 +10,10 @@ class StandMarkHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _StandMarkHomePageState createState() => _StandMarkHomePageState();
+  _StandMarkHomeScreenState createState() => _StandMarkHomeScreenState();
 }
 
-class _StandMarkHomePageState extends State<StandMarkHomePage> {
+class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, The Flutter framework has been optimized to make rerunning build methods fast, so that you can just rebuild anything that needs updating rather than having to individually change instances of widgets.
