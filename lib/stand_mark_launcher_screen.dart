@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:business_consultancy/stand_mark_logo.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class StandMarkLauncherScreen extends StatefulWidget {
   StandMarkLauncherScreen({Key key, this.title}) : super(key: key);
@@ -21,15 +22,26 @@ class _StandMarkLauncherScreenState extends State<StandMarkLauncherScreen> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, The Flutter framework has been optimized to make rerunning build methods fast, so that you can just rebuild anything that needs updating rather than having to individually change instances of widgets.
+    // TODO - Report to Dart on Timer variable Warnings
 
     Timer timer;
 
-    void handleTimerCompletion() {
+    Future<void> handleTimerCompletion() async {
       print('Timer Completed 5s');
+
       // if (timer.isActive) {
       //   print('Timer is Active');
       //   timer.cancel();
       // }
+
+      final prefs = await SharedPreferences.getInstance();
+      // Try reading data from the counter key. If it doesn't exist, return 0.
+      final isInitialized = prefs.getInt('isInitialized') ?? 0;
+      if (isInitialized == 0) {
+        Navigator.pushNamed(context, '/login');
+      } else {
+        Navigator.pushNamed(context, '/home');
+      }
     }
 
     timer = new Timer(new Duration(seconds: 5), handleTimerCompletion);

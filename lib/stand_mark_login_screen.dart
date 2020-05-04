@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:business_consultancy/stand_mark_logo.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class StandMarkLoginScreen extends StatefulWidget {
   @override
@@ -10,6 +11,27 @@ class StandMarkLoginScreen extends StatefulWidget {
 
 class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
   final _formKey = GlobalKey<FormState>();
+
+  String validateMobileNumber(String value) {
+    String pattern = '[0-9]{10}';
+    RegExp regExp = new RegExp(pattern);
+    if (value.isEmpty) {
+      return 'Please Enter Your Mobile Number...';
+    } else if (!regExp.hasMatch(value)) {
+      return 'Please Enter Valid Mobile number';
+    }
+    return null;
+  }
+
+// Create a text controller and use it to retrieve the current value of the TextField.
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +75,7 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
       ),
       keyboardType: TextInputType.phone,
       autofocus: true,
+      controller: myController,
       minLines: 1,
       maxLines: 1,
       maxLength: 10,
@@ -62,10 +85,7 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
       // textAlignVertical: TextAlignVertical(y: -1.0),
       textInputAction: TextInputAction.done,
       validator: (value) {
-        if (value.isEmpty) {
-          return 'Please Enter Your Mobile Number...';
-        }
-        return null;
+        return validateMobileNumber(value);
       },
     );
 
@@ -145,11 +165,17 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
         ),
       ),
 
-      onPressed: () {
+      onPressed: () async {
         // Navigator.of(context).pushNamed(HomePage.tag);
         // Validate will return true if the form is valid, or false if the form is invalid.
         if (_formKey.currentState.validate()) {
           // Process data.
+          // obtain shared preferences
+          final prefs = await SharedPreferences.getInstance();
+          // set value
+          prefs.setInt('isInitialized', 1);
+          prefs.setString('userMobileNumber', myController.text);
+          Navigator.pushNamed(context, '/home');
         }
       },
     );

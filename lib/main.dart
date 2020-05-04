@@ -92,11 +92,13 @@ class StandMarkApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       title: 'StandMark Pvt. Ltd.',
-      home: StandMarkLauncherScreen(),
+      initialRoute: '/',
       routes: {
-        // 'launcher': (context) => StandMarkLauncherScreen(),
-        'login': (context) => StandMarkLoginScreen(),
-        'home': (context) => StandMarkHomeScreen(),
+        '/': (context) => StandMarkLauncherScreen(),
+        '/login': (context) => StandMarkLoginScreen(),
+        '/home': (context) => StandMarkHomeScreen(
+              title: 'Home',
+            ),
       },
     );
   }

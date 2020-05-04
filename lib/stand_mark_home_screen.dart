@@ -1,4 +1,6 @@
+import 'package:business_consultancy/stand_mark_logo.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class StandMarkHomeScreen extends StatefulWidget {
   StandMarkHomeScreen({Key key, this.title}) : super(key: key);
@@ -18,25 +20,138 @@ class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, The Flutter framework has been optimized to make rerunning build methods fast, so that you can just rebuild anything that needs updating rather than having to individually change instances of widgets.
 
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+    final userName = Text(
+      'User X',
+      overflow: TextOverflow.clip,
+      maxLines: 1,
+      semanticsLabel: 'User Name',
+      softWrap: false,
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+      textScaleFactor: 1.25,
+      textWidthBasis: TextWidthBasis.parent,
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        // letterSpacing: 1.5,
+        // fontStyle: FontStyle.italic,
+        // fontFamily: 'Kumar One Outline',
+        // decoration: TextDecoration.combine(
+        //     [TextDecoration.overline, TextDecoration.underline]),
+        // decorationStyle: TextDecorationStyle.double,
+        // decorationThickness: 2.0,
+        // decorationColor: Colors.orange,
+        debugLabel: 'User Name',
+        color: Colors.white,
+        // backgroundColor: Colors.red,
       ),
+    );
+
+    final userCardList = ListView(
+      shrinkWrap: true,
+      padding: EdgeInsets.all(24.0),
+      semanticChildCount: 2,
+      children: <Widget>[
+        StandMarkLogo.logo,
+        userName,
+      ],
+    );
+
+    final centeredUserCardList = Center(
+      child: userCardList,
+    );
+
+    return Scaffold(
+      appBar: AppBar(title: Text(widget.title)),
       body: SafeArea(
-        child: Center(
-          // Center is a layout widget. It takes a single child and positions it in the middle of the parent.
-          child: ListView(
-            shrinkWrap: true,
-            padding: EdgeInsets.only(left: 24.0, right: 24.0),
-            children: <Widget>[],
-          ),
+        child: Center(),
+      ),
+      drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll through the options in the drawer if there isn't enough vertical space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          shrinkWrap: true,
+          children: <Widget>[
+            // UserAccountsDrawerHeader(
+            //   accountEmail: Text(''),
+            //   accountName: Text(
+            //     'User X',
+            //     overflow: TextOverflow.clip,
+            //     maxLines: 1,
+            //     semanticsLabel: 'User Name',
+            //     softWrap: false,
+            //     textAlign: TextAlign.center,
+            //     textDirection: TextDirection.ltr,
+            //     textScaleFactor: 1.5,
+            //     textWidthBasis: TextWidthBasis.parent,
+            //     style: TextStyle(
+            //       fontWeight: FontWeight.bold,
+            //       // letterSpacing: 1.5,
+            //       // fontStyle: FontStyle.italic,
+            //       // fontFeatures: [FontFeature.enable('smcp')],
+            //       // fontFamily: 'Kumar One Outline',
+            //       // decoration: TextDecoration.combine(
+            //       //     [TextDecoration.overline, TextDecoration.underline]),
+            //       // decorationStyle: TextDecorationStyle.double,
+            //       // decorationThickness: 2.0,
+            //       // decorationColor: Colors.orange,
+            //       debugLabel: 'User Name',
+            //       color: Colors.white,
+            //       // backgroundColor: Colors.red,
+            //       // background: paintButtonText,
+            //     ),
+            //   ),
+            // ),
+            DrawerHeader(
+              child: StandMarkLogo.logo,
+            ),
+            ListTile(
+              title: Text('Home'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Our Services'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Call StandMark Pvt. Ltd.'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('My Profile'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Logout'),
+              onTap: () async {
+                final prefs = await SharedPreferences.getInstance();
+                // set value
+                prefs.setInt('isInitialized', 0);
+                Navigator.pushNamed(context, '/login');
+              },
+            ),
+          ],
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   tooltip: 'Increment',
-        //   onPressed: () {},
-        //   child: Icon(Icons.add),
-        // ),
       ),
     );
   }
