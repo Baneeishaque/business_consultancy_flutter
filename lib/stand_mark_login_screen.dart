@@ -42,39 +42,40 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
         // counterText: '10',
         // prefixText: '+91',
 
-        prefixIcon: Padding(
-          padding: const EdgeInsetsDirectional.only(start: 8),
-          child: Icon(
-            Icons.indeterminate_check_box,
-            semanticLabel: 'Mobile Number Prefix Icon',
-          ),
-        ),
+        // prefixIcon: Padding(
+        //   padding: const EdgeInsetsDirectional.only(start: 8),
+        //   child: Icon(
+        //     Icons.indeterminate_check_box,
+        //     semanticLabel: 'Mobile Number Prefix Icon',
+        //   ),
+        // ),
 
         prefix: Padding(
           padding: const EdgeInsetsDirectional.only(end: 8),
           child: Text('+91'),
         ),
 
-        suffix: Padding(
-          padding: const EdgeInsetsDirectional.only(start: 8),
-          child: Text('+91'),
-        ),
+        // suffix: Padding(
+        //   padding: const EdgeInsetsDirectional.only(start: 8),
+        //   child: Text('+91'),
+        // ),
 
-        suffixIcon: Padding(
-          padding: const EdgeInsetsDirectional.only(end: 8),
-          child: Icon(
-            Icons.indeterminate_check_box,
-            semanticLabel: 'Mobile Number Suffix Icon',
-          ),
-        ),
+        // TODO : Use Clear TextField Action
+        // suffixIcon: Padding(
+        //   padding: const EdgeInsetsDirectional.only(end: 8),
+        //   child: Icon(
+        //     Icons.indeterminate_check_box,
+        //     semanticLabel: 'Mobile Number Suffix Icon',
+        //   ),
+        // ),
 
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         semanticCounterText: 'Maximum length of mobile number is 10',
-        helperText: 'Please Enter Your Mobile Number...',
-        icon: Icon(
-          Icons.mobile_screen_share,
-          semanticLabel: 'Mobile Number Icon',
-        ),
+        // helperText: 'Please Enter Your Mobile Number...',
+        // icon: Icon(
+        //   Icons.mobile_screen_share,
+        //   semanticLabel: 'Mobile Number Icon',
+        // ),
         labelText: 'Your Mobile Number',
         hintText: 'Enter Your Mobile Number...',
         contentPadding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
