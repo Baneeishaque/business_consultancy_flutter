@@ -41,17 +41,18 @@ class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
         // decorationThickness: 2.0,
         // decorationColor: Colors.orange,
         debugLabel: 'User Name',
-        color: Colors.white,
+        color: Colors.black,
         // backgroundColor: Colors.red,
       ),
     );
 
     final userCardList = ListView(
       shrinkWrap: true,
-      padding: EdgeInsets.all(24.0),
+      padding: EdgeInsets.all(8.0),
       semanticChildCount: 2,
       children: <Widget>[
         StandMarkLogo.logo,
+        SizedBox(height: 8.0),
         userName,
       ],
     );
@@ -103,14 +104,13 @@ class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
             //   ),
             // ),
             DrawerHeader(
-              child: StandMarkLogo.logo,
+              child: centeredUserCardList,
+              // decoration: ,
             ),
             ListTile(
               title: Text('Home'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
+                // Close the drawer
                 Navigator.pop(context);
               },
             ),
