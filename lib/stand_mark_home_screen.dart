@@ -1,13 +1,11 @@
-import 'package:business_consultancy/stand_mark_logo.dart';
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:business_consultancy/stand_mark_logo.dart';
+
+import 'package:flutter/material.dart';
 
 class StandMarkHomeScreen extends StatefulWidget {
   StandMarkHomeScreen({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning that it has a State object (defined below) that contains fields that affect how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this case the title) provided by the parent (in this case the App widget) and used by the build method of the State. Fields in a Widget subclass are always marked "final".
 
   final String title;
 
@@ -18,8 +16,6 @@ class StandMarkHomeScreen extends StatefulWidget {
 class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, The Flutter framework has been optimized to make rerunning build methods fast, so that you can just rebuild anything that needs updating rather than having to individually change instances of widgets.
-
     final userName = Text(
       'User X',
       overflow: TextOverflow.clip,
@@ -32,17 +28,8 @@ class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
       textWidthBasis: TextWidthBasis.parent,
       style: TextStyle(
         fontWeight: FontWeight.bold,
-        // letterSpacing: 1.5,
-        // fontStyle: FontStyle.italic,
-        // fontFamily: 'Kumar One Outline',
-        // decoration: TextDecoration.combine(
-        //     [TextDecoration.overline, TextDecoration.underline]),
-        // decorationStyle: TextDecorationStyle.double,
-        // decorationThickness: 2.0,
-        // decorationColor: Colors.orange,
         debugLabel: 'User Name',
         color: Colors.black,
-        // backgroundColor: Colors.red,
       ),
     );
 
@@ -87,19 +74,8 @@ class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
             //     textWidthBasis: TextWidthBasis.parent,
             //     style: TextStyle(
             //       fontWeight: FontWeight.bold,
-            //       // letterSpacing: 1.5,
-            //       // fontStyle: FontStyle.italic,
-            //       // fontFeatures: [FontFeature.enable('smcp')],
-            //       // fontFamily: 'Kumar One Outline',
-            //       // decoration: TextDecoration.combine(
-            //       //     [TextDecoration.overline, TextDecoration.underline]),
-            //       // decorationStyle: TextDecorationStyle.double,
-            //       // decorationThickness: 2.0,
-            //       // decorationColor: Colors.orange,
             //       debugLabel: 'User Name',
             //       color: Colors.white,
-            //       // backgroundColor: Colors.red,
-            //       // background: paintButtonText,
             //     ),
             //   ),
             // ),
@@ -118,7 +94,6 @@ class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
               title: Text('Our Services'),
               onTap: () {
                 // Update the state of the app
-                // ...
                 // Then close the drawer
                 Navigator.pop(context);
               },
@@ -127,7 +102,6 @@ class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
               title: Text('Call StandMark Pvt. Ltd.'),
               onTap: () {
                 // Update the state of the app
-                // ...
                 // Then close the drawer
                 Navigator.pop(context);
               },
@@ -136,7 +110,6 @@ class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
               title: Text('My Profile'),
               onTap: () {
                 // Update the state of the app
-                // ...
                 // Then close the drawer
                 Navigator.pop(context);
               },

@@ -6,20 +6,17 @@ import 'package:sentry/sentry.dart';
 import 'package:business_consultancy/stand_mark_home_screen.dart';
 import 'package:business_consultancy/stand_mark_launcher_screen.dart';
 import 'package:business_consultancy/stand_mark_login_screen.dart';
+
 import 'package:flutter/material.dart';
 
 /// Sentry.io client used to send crash reports (or more generally "events").
-
 /// This client uses the default client parameters. For example, it uses a plain HTTP client that does not retry failed report attempts and does not support offline mode. You might want to use a different HTTP client, one that has these features. Please read the documentation for the [SentryClient] constructor to learn how you can customize it.
-
 /// [SentryClient.environmentAttributes] are particularly useful in a real app. Use them to specify attributes of your app that do not change from one event to another, such as operating system type and version, the version of Flutter, and [device information][1].
-
 /// [1]:https://github.com/flutter/plugins/tree/master/packages/device_info
 final SentryClient _sentry =
     new SentryClient(dsn: 'beff9d168df011ea8cd14201c0a8d02b');
 
 /// Whether the VM is running in debug mode.
-
 /// This is useful to decide whether a report should be sent to sentry. Usually reports from dev mode are not very useful, as these happen on developers' workspaces rather than on users' devices in production.
 bool get isInDebugMode {
   bool inDebugMode = false;
@@ -64,10 +61,7 @@ Future<Null> main() async {
     }
   };
 
-  // This creates a [Zone] that contains the Flutter application and stablishes an error handler that captures errors and reports them.
-
-  // Using a zone makes sure that as many errors as possible are captured, including those thrown from [Timer]s, microtasks, I/O, and those forwarded from the `FlutterError` handler.
-
+  // This creates a [Zone] that contains the Flutter application and stablishes an error handler that captures errors and reports them. Using a zone makes sure that as many errors as possible are captured, including those thrown from [Timer]s, microtasks, I/O, and those forwarded from the `FlutterError` handler.
   // More about zones:
   // - https://api.dartlang.org/stable/1.24.2/dart-async/Zone-class.html
   // - https://www.dartlang.org/articles/libraries/zones

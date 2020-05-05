@@ -1,8 +1,10 @@
 import 'dart:ui';
 
-import 'package:business_consultancy/stand_mark_logo.dart';
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:business_consultancy/stand_mark_logo.dart';
+
+import 'package:flutter/material.dart';
 
 class StandMarkLoginScreen extends StatefulWidget {
   @override
@@ -23,13 +25,13 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
     return null;
   }
 
-// Create a text controller and use it to retrieve the current value of the TextField.
-  final myController = TextEditingController();
+  // Create a text controller and use it to retrieve the current value of the TextField.
+  final mobileNumberTextFieldController = TextEditingController();
 
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
-    myController.dispose();
+    mobileNumberTextFieldController.dispose();
     super.dispose();
   }
 
@@ -39,10 +41,7 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
       decoration: InputDecoration(
         // counterText: '10',
         // prefixText: '+91',
-        prefix: Padding(
-          padding: const EdgeInsetsDirectional.only(end: 8),
-          child: Text('+91'),
-        ),
+
         prefixIcon: Padding(
           padding: const EdgeInsetsDirectional.only(start: 8),
           child: Icon(
@@ -50,10 +49,17 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
             semanticLabel: 'Mobile Number Prefix Icon',
           ),
         ),
+
+        prefix: Padding(
+          padding: const EdgeInsetsDirectional.only(end: 8),
+          child: Text('+91'),
+        ),
+
         suffix: Padding(
           padding: const EdgeInsetsDirectional.only(start: 8),
           child: Text('+91'),
         ),
+
         suffixIcon: Padding(
           padding: const EdgeInsetsDirectional.only(end: 8),
           child: Icon(
@@ -61,6 +67,7 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
             semanticLabel: 'Mobile Number Suffix Icon',
           ),
         ),
+
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         semanticCounterText: 'Maximum length of mobile number is 10',
         helperText: 'Please Enter Your Mobile Number...',
@@ -75,7 +82,7 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
       ),
       keyboardType: TextInputType.phone,
       autofocus: true,
-      controller: myController,
+      controller: mobileNumberTextFieldController,
       minLines: 1,
       maxLines: 1,
       maxLength: 10,
@@ -89,8 +96,8 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
       },
     );
 
-    Paint paintButtonText = Paint();
-    paintButtonText.color = Colors.red;
+    // Paint paintButtonText = Paint();
+    // paintButtonText.color = Colors.red;
 
     final continueButton = RaisedButton(
       // shape: ContinuousRectangleBorder(
@@ -110,6 +117,7 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
       ),
 
       // shape: BeveledRectangleBorder(
+
       //   // borderRadius: BorderRadius.all(Radius.elliptical(12, 24)),
       //   borderRadius: BorderRadius.circular(24),
       //   // borderRadius: BorderRadius.only(),
@@ -143,12 +151,14 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
         textWidthBasis: TextWidthBasis.parent,
         style: TextStyle(
           fontWeight: FontWeight.bold,
+
           // shadows: [
           //   Shadow(blurRadius: 0.25, color: Colors.red),
           //   Shadow(blurRadius: 0.25, color: Colors.green),
           //   Shadow(blurRadius: 0.25, color: Colors.pink),
           //   Shadow(blurRadius: 0.25, color: Colors.amber),
           // ],
+
           // letterSpacing: 1.5,
           // fontStyle: FontStyle.italic,
           // fontFeatures: [FontFeature.enable('smcp')],
@@ -166,7 +176,6 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
       ),
 
       onPressed: () async {
-        // Navigator.of(context).pushNamed(HomePage.tag);
         // Validate will return true if the form is valid, or false if the form is invalid.
         if (_formKey.currentState.validate()) {
           // Process data.
@@ -174,7 +183,8 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
           final prefs = await SharedPreferences.getInstance();
           // set value
           prefs.setInt('isInitialized', 1);
-          prefs.setString('userMobileNumber', myController.text);
+          prefs.setString(
+              'userMobileNumber', mobileNumberTextFieldController.text);
           Navigator.pushNamed(context, '/home');
         }
       },
