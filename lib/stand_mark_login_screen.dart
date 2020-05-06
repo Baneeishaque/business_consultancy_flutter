@@ -6,12 +6,7 @@ import 'package:business_consultancy/stand_mark_logo.dart';
 
 import 'package:flutter/material.dart';
 
-class StandMarkLoginScreen extends StatefulWidget {
-  @override
-  _StandMarkLoginScreenState createState() => new _StandMarkLoginScreenState();
-}
-
-class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
+class StandMarkLoginScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 
   String validateMobileNumber(String value) {
@@ -27,13 +22,6 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
 
   // Create a text controller and use it to retrieve the current value of the TextField.
   final mobileNumberTextFieldController = TextEditingController();
-
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is disposed.
-    mobileNumberTextFieldController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -212,7 +200,7 @@ class _StandMarkLoginScreenState extends State<StandMarkLoginScreen> {
       shrinkWrap: true,
       padding: EdgeInsets.only(left: 24.0, right: 24.0),
       children: <Widget>[
-        StandMarkLogo.logo,
+        standMarkLogo,
         SizedBox(height: 16.0),
         inputForm,
       ],

@@ -1,59 +1,65 @@
 import 'package:business_consultancy/customized_widgets.dart';
 import 'package:business_consultancy/stand_mark_constants.dart';
 import 'package:business_consultancy/stand_mark_drawer.dart';
-import 'package:business_consultancy/stand_mark_home_button.dart';
-
+import 'package:business_consultancy/stand_mark_service_button.dart';
 import 'package:flutter/material.dart';
 
-class StandMarkHomeScreen extends StatelessWidget {
+class StandMarkServicesScreen extends StatelessWidget {
   final String title;
 
-  StandMarkHomeScreen({Key key, this.title}) : super(key: key);
+  StandMarkServicesScreen({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // TODO : Write function to construct ListView with set of buttons generated from array of strings
     final homeButtonList = ListView(
       shrinkWrap: true,
       padding: EdgeInsets.all(24.0),
       children: <Widget>[
-        getStandMarkHomeButton(context, standMarkServices),
+        getStandMarkServiceButton(context, gstRegistration),
         SizedBox(
           height: 24.0,
         ),
-        getStandMarkHomeButton(context, standMarkWhatsapp),
+        getStandMarkServiceButton(context, gstFilling),
         SizedBox(
           height: 24.0,
         ),
-        getStandMarkHomeButton(context, standMarkFacebook),
+        getStandMarkServiceButton(context, incomeTaxFilling),
         SizedBox(
           height: 24.0,
         ),
-        getStandMarkHomeButton(context, standMarkInstagram),
+        getStandMarkServiceButton(context, companyRegistartion),
         SizedBox(
           height: 24.0,
         ),
-        getStandMarkHomeButton(context, standMarkTwitter),
+        getStandMarkServiceButton(context, llpRegistration),
         SizedBox(
           height: 24.0,
         ),
-        getStandMarkHomeButton(context, standMarkTelegram),
+        getStandMarkServiceButton(context, digitalSignature),
         SizedBox(
           height: 24.0,
         ),
-        getStandMarkHomeButton(context, standMarkLinkedIn),
+        getStandMarkServiceButton(context, partnershipDeed),
         SizedBox(
           height: 24.0,
         ),
-        getStandMarkHomeButton(context, standMarkPinrest),
+        getStandMarkServiceButton(context, tradmarkRegistration),
         SizedBox(
           height: 24.0,
         ),
-        getStandMarkHomeButton(context, standMarkWebsite),
+        getStandMarkServiceButton(context, foodAndSafetyLicense),
         SizedBox(
           height: 24.0,
         ),
-        getStandMarkHomeButton(context, standMarkCallUs),
+        getStandMarkServiceButton(context, importExportCode),
+        SizedBox(
+          height: 24.0,
+        ),
+        getStandMarkServiceButton(context, msmeCode),
+        SizedBox(
+          height: 24.0,
+        ),
+        getStandMarkServiceButton(context, businessFunding),
         SizedBox(
           height: 24.0,
         ),
