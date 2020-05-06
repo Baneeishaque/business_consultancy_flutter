@@ -21,3 +21,5 @@ const String foodAndSafetyLicense = 'Food & Safety License';
 const String importExportCode = 'Import Export Code';
 const String msmeCode = 'MSME Code';
 const String businessFunding = 'Business Funding';
+
+const String standMarkSupport = 'StandMark Support';

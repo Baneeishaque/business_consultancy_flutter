@@ -1,4 +1,5 @@
 import 'package:business_consultancy/stand_mark_constants.dart';
+import 'package:business_consultancy/stand_mark_service_arguments.dart';
 import 'package:flutter/material.dart';
 
 RaisedButton getStandMarkServiceButton(BuildContext context, String text) {
@@ -31,10 +32,8 @@ RaisedButton getStandMarkServiceButton(BuildContext context, String text) {
       ),
     ),
     onPressed: () {
-      switch (text) {
-        case standMarkServices:
-          break;
-      }
+      Navigator.pushNamed(context, '/service',
+          arguments: StandMarkServiceArguments(text, '$text Description...'));
     },
   );
 }

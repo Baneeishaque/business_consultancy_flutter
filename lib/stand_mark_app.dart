@@ -2,6 +2,7 @@ import 'package:business_consultancy/stand_mark_Services_screen.dart';
 import 'package:business_consultancy/stand_mark_home_screen.dart';
 import 'package:business_consultancy/stand_mark_launcher_screen.dart';
 import 'package:business_consultancy/stand_mark_login_screen.dart';
+import 'package:business_consultancy/stand_mark_service_screen.dart';
 import 'package:flutter/material.dart';
 
 class StandMarkApp extends StatelessWidget {
@@ -28,6 +29,7 @@ class StandMarkApp extends StatelessWidget {
         '/services': (context) => StandMarkServicesScreen(
               title: 'Services',
             ),
+        '/service': (context) => StandMarkServiceScreen(),
       },
     );
   }
