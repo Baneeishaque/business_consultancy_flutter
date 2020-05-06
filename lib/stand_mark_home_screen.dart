@@ -48,10 +48,92 @@ class _StandMarkHomeScreenState extends State<StandMarkHomeScreen> {
       child: userCardList,
     );
 
+    final homeButtonServices = RaisedButton(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24),
+      ),
+      color: Colors.blueAccent,
+      clipBehavior: Clip.antiAlias,
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      hoverColor: Colors.greenAccent,
+      splashColor: Colors.green,
+      child: Text(
+        'Services',
+        overflow: TextOverflow.clip,
+        maxLines: 1,
+        semanticsLabel: 'Services Button',
+        softWrap: false,
+        textAlign: TextAlign.center,
+        textDirection: TextDirection.ltr,
+        // textScaleFactor: 1.0,
+        textWidthBasis: TextWidthBasis.parent,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          // letterSpacing: 1.5,
+          // fontStyle: FontStyle.italic,
+          // fontFamily: 'Kumar One Outline',
+          debugLabel: 'Services Button',
+          color: Colors.white,
+        ),
+      ),
+      onPressed: () async {},
+    );
+
+    final homeButtonList = ListView(
+      shrinkWrap: true,
+      padding: EdgeInsets.all(24.0),
+      children: <Widget>[
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+        homeButtonServices,
+        SizedBox(
+          height: 24.0,
+        ),
+      ],
+    );
+
+    final centeredHomeButtonList = Center(
+      child: homeButtonList,
+    );
+
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: SafeArea(
-        child: Center(),
+        child: centeredHomeButtonList,
       ),
       drawer: Drawer(
         semanticLabel: 'Navigation Drawer',
