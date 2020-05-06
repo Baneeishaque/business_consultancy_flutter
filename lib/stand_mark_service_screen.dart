@@ -3,6 +3,7 @@ import 'package:business_consultancy/stand_mark_constants.dart';
 import 'package:business_consultancy/stand_mark_drawer.dart';
 import 'package:business_consultancy/stand_mark_service_arguments.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class StandMarkServiceScreen extends StatelessWidget {
@@ -50,7 +51,8 @@ class StandMarkServiceScreen extends StatelessWidget {
               FlatButton(
                 child: Text('Via WhatsApp'),
                 onPressed: () {
-                  // FlutterOpenWhatsapp.sendSingleMessage("918179015345", "Hello");
+                  FlutterOpenWhatsapp.sendSingleMessage(
+                      "918179015345", "Hello");
                   Navigator.of(context).pop();
                 },
               ),
