@@ -1,8 +1,10 @@
+import 'package:business_consultancy/stand_mark_login_screen.dart';
 import 'package:business_consultancy/stand_mark_logo.dart';
+import 'package:business_consultancy/stand_mark_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final userName = Text(
+final userNameText = Text(
   'User X',
   overflow: TextOverflow.clip,
   maxLines: 1,
@@ -26,7 +28,7 @@ final userCardList = ListView(
   children: <Widget>[
     standMarkLogo,
     SizedBox(height: 8.0),
-    userName,
+    userNameText,
   ],
 );
 
@@ -41,6 +43,7 @@ Drawer getStandMarkDrawer(BuildContext context) {
     child: ListView(
       // Important: Remove any padding from the ListView.
       padding: EdgeInsets.zero,
+
       shrinkWrap: true,
       children: <Widget>[
         // UserAccountsDrawerHeader(
@@ -73,15 +76,14 @@ Drawer getStandMarkDrawer(BuildContext context) {
           leading: Icon(Icons.home),
           title: Text('Home'),
           onTap: () {
-            // Close the drawer
-            Navigator.pop(context);
+            //TODO : Find screen from which event triggered
           },
         ),
         ListTile(
           leading: Icon(Icons.room_service),
           title: Text('Our Services'),
           onTap: () {
-            // Update the state of the app
+            // TODO : Update the state of the app
             // Then close the drawer
             Navigator.pop(context);
           },
@@ -90,8 +92,7 @@ Drawer getStandMarkDrawer(BuildContext context) {
           leading: Icon(Icons.call),
           title: Text('Call StandMark Pvt. Ltd.'),
           onTap: () {
-            // Update the state of the app
-            // Then close the drawer
+            voiceCallToStandMark();
             Navigator.pop(context);
           },
         ),
@@ -99,8 +100,7 @@ Drawer getStandMarkDrawer(BuildContext context) {
           leading: Icon(Icons.portable_wifi_off),
           title: Text('My Profile'),
           onTap: () {
-            // Update the state of the app
-            // Then close the drawer
+            // TODO : Update the state of the app
             Navigator.pop(context);
           },
         ),
@@ -111,7 +111,7 @@ Drawer getStandMarkDrawer(BuildContext context) {
             final prefs = await SharedPreferences.getInstance();
             // set value
             prefs.setInt('isInitialized', 0);
-            Navigator.pushNamed(context, '/login');
+            Navigator.pushNamed(context, StandMarkLoginScreen.route);
           },
         ),
       ],

@@ -1,20 +1,22 @@
 import 'dart:ui';
 
+import 'package:business_consultancy/stand_mark_home_screen.dart';
+import 'package:business_consultancy/stand_mark_logo.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:business_consultancy/stand_mark_logo.dart';
-
-import 'package:flutter/material.dart';
-
 class StandMarkLoginScreen extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
+  static const String route = '/login';
+  final mobileNumberInputFormKey = GlobalKey<FormState>();
 
-  String validateMobileNumber(String value) {
+  String validateMobileNumber(String mobileNumber) {
     String pattern = '[0-9]{10}';
+
     RegExp regExp = new RegExp(pattern);
-    if (value.isEmpty) {
+
+    if (mobileNumber.isEmpty) {
       return 'Please Enter Your Mobile Number...';
-    } else if (!regExp.hasMatch(value)) {
+    } else if (!regExp.hasMatch(mobileNumber)) {
       return 'Please Enter Valid Mobile number';
     }
     return null;
@@ -25,7 +27,7 @@ class StandMarkLoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mobileNumber = TextFormField(
+    final mobileNumberTextField = TextFormField(
       decoration: InputDecoration(
         // counterText: '10',
         // prefixText: '+91',
@@ -48,7 +50,7 @@ class StandMarkLoginScreen extends StatelessWidget {
         //   child: Text('+91'),
         // ),
 
-        // TODO : Use Clear TextField Action
+        // TODO : Use Clear TextField Action - on Edit, show suffix icon, on click suffix icon - remove text
         // suffixIcon: Padding(
         //   padding: const EdgeInsetsDirectional.only(end: 8),
         //   child: Icon(
@@ -80,8 +82,8 @@ class StandMarkLoginScreen extends StatelessWidget {
       textAlign: TextAlign.start,
       // textAlignVertical: TextAlignVertical(y: -1.0),
       textInputAction: TextInputAction.done,
-      validator: (value) {
-        return validateMobileNumber(value);
+      validator: (mobileNumberText) {
+        return validateMobileNumber(mobileNumberText);
       },
     );
 
@@ -122,9 +124,9 @@ class StandMarkLoginScreen extends StatelessWidget {
       // disabledTextColor: Colors.black,
       // focusColor: Colors.yellow,
       // highlightColor: Colors.lime,
-      hoverColor: Colors.greenAccent,
+//      hoverColor: Colors.greenAccent,
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      splashColor: Colors.green,
+//      splashColor: Colors.green,
       // textColor: Colors.black,
       // textTheme: ButtonTextTheme.primary,
 
@@ -166,7 +168,7 @@ class StandMarkLoginScreen extends StatelessWidget {
 
       onPressed: () async {
         // Validate will return true if the form is valid, or false if the form is invalid.
-        if (_formKey.currentState.validate()) {
+        if (mobileNumberInputFormKey.currentState.validate()) {
           // Process data.
           // obtain shared preferences
           final prefs = await SharedPreferences.getInstance();
@@ -174,7 +176,7 @@ class StandMarkLoginScreen extends StatelessWidget {
           prefs.setInt('isInitialized', 1);
           prefs.setString(
               'userMobileNumber', mobileNumberTextFieldController.text);
-          Navigator.pushNamed(context, '/home');
+          Navigator.pushNamed(context, StandMarkHomeScreen.route);
         }
       },
     );
@@ -184,39 +186,39 @@ class StandMarkLoginScreen extends StatelessWidget {
       child: continueButton,
     );
 
-    final inputForm = Form(
-      key: _formKey,
+    final mobileNumberInputForm = Form(
+      key: mobileNumberInputFormKey,
       child: ListView(
         shrinkWrap: true,
         semanticChildCount: 2,
         children: <Widget>[
-          mobileNumber,
+          mobileNumberTextField,
           paddedContinueButton,
         ],
       ),
     );
 
-    final viewList = ListView(
+    final layoutList = ListView(
       shrinkWrap: true,
       padding: EdgeInsets.only(left: 24.0, right: 24.0),
       children: <Widget>[
         standMarkLogo,
         SizedBox(height: 16.0),
-        inputForm,
+        mobileNumberInputForm,
       ],
     );
 
-    final centeredViewList = Center(
-      child: viewList,
+    final centeredLayoutList = Center(
+      child: layoutList,
     );
 
-    final safeAreaCenteredViewList = SafeArea(
-      child: centeredViewList,
+    final safeAreaCenteredLayoutList = SafeArea(
+      child: centeredLayoutList,
     );
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: safeAreaCenteredViewList,
+      body: safeAreaCenteredLayoutList,
     );
   }
 }

@@ -1,12 +1,16 @@
 import 'dart:async';
 
+import 'package:business_consultancy/stand_mark_home_screen.dart';
+import 'package:business_consultancy/stand_mark_login_screen.dart';
+import 'package:business_consultancy/stand_mark_logo.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:business_consultancy/stand_mark_logo.dart';
-
-import 'package:flutter/material.dart';
-
 class StandMarkLauncherScreen extends StatelessWidget {
+  //TODO : Handle Back Button Events
+
+  static const String route = '/';
+
   @override
   Widget build(BuildContext context) {
     // TODO - Report to Dart on Timer variable Warnings
@@ -25,9 +29,9 @@ class StandMarkLauncherScreen extends StatelessWidget {
       // Try reading data from the isInitialized key. If it doesn't exist, return 0.
       final isInitialized = prefs.getInt('isInitialized') ?? 0;
       if (isInitialized == 0) {
-        Navigator.pushNamed(context, '/login');
+        Navigator.pushNamed(context, StandMarkLoginScreen.route);
       } else {
-        Navigator.pushNamed(context, '/home');
+        Navigator.pushNamed(context, StandMarkHomeScreen.route);
       }
     }
 

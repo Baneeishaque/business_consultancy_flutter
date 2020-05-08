@@ -5,71 +5,48 @@ import 'package:business_consultancy/stand_mark_service_button.dart';
 import 'package:flutter/material.dart';
 
 class StandMarkServicesScreen extends StatelessWidget {
+  static const String route = '/services';
   final String title;
 
   StandMarkServicesScreen({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final homeButtonList = ListView(
+    final servicesButtonList = ListView(
       shrinkWrap: true,
       padding: EdgeInsets.all(24.0),
       children: <Widget>[
         getStandMarkServiceButton(context, gstRegistration),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
         getStandMarkServiceButton(context, gstFilling),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
         getStandMarkServiceButton(context, incomeTaxFilling),
-        SizedBox(
-          height: 24.0,
-        ),
-        getStandMarkServiceButton(context, companyRegistartion),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
+        getStandMarkServiceButton(context, companyRegistration),
+        sizedBox24(),
         getStandMarkServiceButton(context, llpRegistration),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
         getStandMarkServiceButton(context, digitalSignature),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
         getStandMarkServiceButton(context, partnershipDeed),
-        SizedBox(
-          height: 24.0,
-        ),
-        getStandMarkServiceButton(context, tradmarkRegistration),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
+        getStandMarkServiceButton(context, trademarkRegistration),
+        sizedBox24(),
         getStandMarkServiceButton(context, foodAndSafetyLicense),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
         getStandMarkServiceButton(context, importExportCode),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
         getStandMarkServiceButton(context, msmeCode),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
         getStandMarkServiceButton(context, businessFunding),
-        SizedBox(
-          height: 24.0,
-        ),
+        sizedBox24(),
       ],
     );
 
     return Scaffold(
       appBar: AppBar(title: Text(title)),
       body: SafeArea(
-        child: centralizedListView(homeButtonList),
+        child: centralizedList(servicesButtonList),
       ),
       drawer: getStandMarkDrawer(context),
     );

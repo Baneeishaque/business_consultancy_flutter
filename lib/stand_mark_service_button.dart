@@ -1,4 +1,5 @@
 import 'package:business_consultancy/stand_mark_service_arguments.dart';
+import 'package:business_consultancy/stand_mark_service_screen.dart';
 import 'package:flutter/material.dart';
 
 RaisedButton getStandMarkServiceButton(BuildContext context, String text) {
@@ -6,11 +7,12 @@ RaisedButton getStandMarkServiceButton(BuildContext context, String text) {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(24),
     ),
+
     color: Colors.blueAccent,
     clipBehavior: Clip.antiAlias,
     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-    hoverColor: Colors.greenAccent,
-    splashColor: Colors.green,
+//    hoverColor: Colors.greenAccent,
+//    splashColor: Colors.green,
     child: Text(
       text,
       overflow: TextOverflow.clip,
@@ -31,7 +33,7 @@ RaisedButton getStandMarkServiceButton(BuildContext context, String text) {
       ),
     ),
     onPressed: () {
-      Navigator.pushNamed(context, '/service',
+      Navigator.pushNamed(context, StandMarkServiceScreen.route,
           arguments: StandMarkServiceArguments(text, '$text Description...'));
     },
   );
