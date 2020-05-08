@@ -6,16 +6,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class StandMarkServiceScreen extends StatelessWidget {
+class StandMarkServiceScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
+  StandMarkServiceScreenState createState() => StandMarkServiceScreenState();
+}
+
+class StandMarkServiceScreenState extends State<StandMarkServiceScreen> {
+  @override
+  Widget build(BuildContext screenContext) {
     // Extract the arguments from the current ModalRoute settings and cast them as ScreenArguments.
     final StandMarkServiceArguments args =
-        ModalRoute.of(context).settings.arguments;
+        ModalRoute
+            .of(screenContext)
+            .settings
+            .arguments;
 
     Future<void> showSupportDialog() async {
       return showDialog<void>(
-        context: context,
+        context: screenContext,
         barrierDismissible: true,
         builder: (BuildContext context) {
           return AlertDialog(
@@ -33,7 +41,7 @@ class StandMarkServiceScreen extends StatelessWidget {
               FlatButton(
                 child: Text('Via Call Back'),
                 onPressed: () {
-                  Scaffold.of(context).showSnackBar(SnackBar(
+                  Scaffold.of(screenContext).showSnackBar(SnackBar(
                     content: Text(
                         'Will get a call back within 5 minutes, Thank You...'),
                     duration: Duration(seconds: 3),
@@ -138,7 +146,7 @@ class StandMarkServiceScreen extends StatelessWidget {
       body: SafeArea(
         child: centralizedListView(servicePageListView),
       ),
-      drawer: getStandMarkDrawer(context),
+      drawer: getStandMarkDrawer(screenContext),
     );
   }
 }
