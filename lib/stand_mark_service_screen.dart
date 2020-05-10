@@ -29,13 +29,13 @@ class StandMarkServiceScreenState extends State<StandMarkServiceScreen> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('$standMarkSupport...'),
-            content: ListView(
-              shrinkWrap: true,
-              padding: EdgeInsets.all(16),
-              children: <Widget>[
-                Text('Seek support from $standMarkPvtLtd...'),
-              ],
-            ),
+//            content: ListView(
+//              shrinkWrap: true,
+//              padding: EdgeInsets.all(16),
+//              children: <Widget>[
+//                Text('Seek support from $standMarkPvtLtd...'),
+//              ],
+//            ),
             actions: <Widget>[
               FlatButton(
                 child: Text('Via Call Back'),

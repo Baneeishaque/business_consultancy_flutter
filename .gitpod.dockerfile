@@ -5,8 +5,7 @@ USER gitpod
 ### Install Flutter
 # dependencies
 RUN set -ex; \
-    sudo apt-get update; \
-    sudo apt-get install -y libglu1-mesa xz-utils; \
+    sudo apt-get install -y libglu1-mesa; \
     sudo rm -rf /var/lib/apt/lists/*
     
 RUN cd /home/gitpod && \
