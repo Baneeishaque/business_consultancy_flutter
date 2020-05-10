@@ -1,4 +1,23 @@
+image:
+  file: .gitpod.dockerfile
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: true
+    addComment: true
+    addBadge: true
+    addLabel: true
 tasks:
-  - init: echo "Replace me with a build script for the project."
-    command: echo "Replace me with something that should run on every start, or just
-      remove me entirely."
+- command: |
+    mkdir -p /home/gitpod/.android
+    touch /home/gitpod/.android/repositories.cfg
+    export PATH=/usr/lib/dart/bin:$FLUTTER_HOME/bin:$ANDROID_HOME/bin:$PATH
+    /home/gitpod/android-sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-28" "build-tools;28.0.3"
+
+vscode:
+  extensions:
+    - Dart-Code.dart-code@3.10.1:WYFoA7kIknxoDt/Wu6mqZA==
+    - Dart-Code.flutter@3.10.1:GThGWBTW94fl6tmZ1DxSSw==
