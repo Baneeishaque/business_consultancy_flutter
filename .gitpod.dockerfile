@@ -22,15 +22,15 @@ RUN cd /home/gitpod && \
     tar -xvf flutter_sdk.tar.xz && \
     rm -f flutter_sdk.tar.xz
 
-RUN cd /home/gitpod && \
-    wget -qO android_studio.zip \
-    https://redirector.gvt1.com/edgedl/android/studio/ide-zips/3.6.3.0/android-studio-ide-192.6392135-linux.tar.gz && \
-    unzip android_studio.zip && \
-    rm -f android_studio.zip
+# RUN cd /home/gitpod && \
+#     wget -qO android_studio.zip \
+#     https://redirector.gvt1.com/edgedl/android/studio/ide-zips/3.6.3.0/android-studio-ide-192.6392135-linux.tar.gz && \
+#     unzip android_studio.zip && \
+#     rm -f android_studio.zip
 
 # TODO(tianhaoz95): make the name of the SDK file into an environment variable to avoid maintainance issue
-RUN mkdir -p /home/gitpod/android-sdk && \
-    cd /home/gitpod/android-sdk && \
-    wget https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip && \
-    unzip commandlinetools-linux-6200805_latest.zip && \
-    rm -f commandlinetools-linux-6200805_latest.zip
+# RUN mkdir -p /home/gitpod/android-sdk && \
+#     cd /home/gitpod/android-sdk && \
+#     wget https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip && \
+#     unzip commandlinetools-linux-6200805_latest.zip && \
+#     rm -f commandlinetools-linux-6200805_latest.zip
